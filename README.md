@@ -40,6 +40,9 @@ NodeCraft/
     │   ├── theme.js           # Shared centralized design language rules
     │   ├── GlobalStyle.jsx    # Reset style injections and layout presets
     │   ├── components/        # Isolated global atomic UI components
+    │   │   └── workflow-builder/  # Builder sidebar, node library, AI assistant, canvas, nodes, inspector
+    │   ├── data/              # Static data (node palette, starter workflow)
+    │   ├── hooks/             # Reusable hooks (useNodeDrag)
     │   └── pages/             # Fully structured layout views
     ├── package.json
     └── vite.config.js         # Automated endpoint proxy setup (/api -> port 8000)
