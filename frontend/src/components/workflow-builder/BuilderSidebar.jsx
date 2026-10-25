@@ -14,7 +14,7 @@ const BuilderSidebar = ({ onAddNode, chat }) => {
         width: 240,
         flexShrink: 0,
         borderRight: `1px solid ${C.border}`,
-        background: "rgba(31,28,25,.95)",
+        background: "rgba(29,28,27,.95)",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",

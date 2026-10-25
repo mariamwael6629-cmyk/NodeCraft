@@ -38,7 +38,7 @@ const Navbar = ({ page, setPage }) => {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "14px 40px",
-          background: "rgba(31,28,25,.8)",
+          background: "rgba(29,28,27,.8)",
           backdropFilter: "blur(24px)",
           borderBottom: `1px solid ${C.border}`,
         }}

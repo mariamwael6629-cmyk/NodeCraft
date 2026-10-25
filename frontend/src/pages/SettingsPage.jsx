@@ -269,7 +269,7 @@ const SettingsPage = () => {
 
   return (
     <div style={{ position: "relative", zIndex: 1, display: "flex", height: "100vh", paddingTop: 60 }}>
-      <div style={{ width: 220, borderRight: `1px solid ${C.border}`, background: "rgba(31,28,25,.95)", padding: 16 }}>
+      <div style={{ width: 220, borderRight: `1px solid ${C.border}`, background: "rgba(29,28,27,.95)", padding: 16 }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: C.muted, marginBottom: 12, letterSpacing: "1px", textTransform: "uppercase", padding: "0 4px" }}>Settings</div>
         {sections.map((s) => (
           <div key={s.id} className={`sidebar-item${activeSection === s.id ? " active" : ""}`} onClick={() => setActiveSection(s.id)}>

@@ -10,7 +10,7 @@ const CanvasToolbar = ({ runWorkflow, isRunning }) => (
       display: "flex",
       gap: 8,
       zIndex: 10,
-      background: "rgba(31,28,25,.9)",
+      background: "rgba(29,28,27,.9)",
       backdropFilter: "blur(16px)",
       border: `1px solid ${C.border}`,
       borderRadius: 14,

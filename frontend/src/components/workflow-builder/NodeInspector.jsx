@@ -6,7 +6,7 @@ const NodeInspector = ({ selectedNode, onSave, onTest }) => (
       width: 280,
       flexShrink: 0,
       borderLeft: `1px solid ${C.border}`,
-      background: "rgba(31,28,25,.95)",
+      background: "rgba(29,28,27,.95)",
       overflow: "auto",
     }}
   >
