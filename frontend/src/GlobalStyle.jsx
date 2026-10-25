@@ -59,6 +59,12 @@ const GlobalStyle = () => (
       .nc-nav-items .nav-item { white-space: nowrap; padding: 6px 12px; }
       .nc-nav-cta { display: none; }
       .nc-stack { grid-template-columns: minmax(0,1fr) !important; }
+      /* Builder on phones: components on top, a canvas that scrolls inside
+         itself, and node settings underneath. */
+      .wb { flex-direction: column; height: auto !important; min-height: 100vh; padding-top: 96px !important; }
+      .wb-left { width: 100% !important; max-height: 260px; border-right: 0 !important; border-bottom: 1px solid ${C.border}; }
+      .wb-canvas { flex: none !important; height: 64vh; min-height: 420px; overflow: auto !important; }
+      .wb-right { width: 100% !important; border-left: 0 !important; border-top: 1px solid ${C.border}; }
       section { padding-left: 16px !important; padding-right: 16px !important; }
     }
     @media (prefers-reduced-motion: reduce) { .nc-train { display: none; } }
@@ -154,6 +160,7 @@ const GlobalStyle = () => (
     .sidebar-item:hover { background: rgba(237,230,211,.06); color: ${C.ivory}; }
     .sidebar-item.active { background: rgba(108,192,122,.12); color: ${C.emeraldGlow}; }
     .workflow-node {
+      touch-action: none;
       position: absolute; border-radius: 14px;
       display: flex; flex-direction: column; gap: 6px;
       padding: 14px 18px;

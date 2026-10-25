@@ -134,10 +134,14 @@ const WorkflowBuilder = () => {
   const handleMouseMove = useCallback(
     (e) => {
       if (!dragging || !canvasRef.current) return;
-      const canvasRect = canvasRef.current.getBoundingClientRect();
+      const canvas = canvasRef.current;
+      const canvasRect = canvas.getBoundingClientRect();
+      // scroll offsets matter on phones, where the canvas scrolls inside itself
+      const x = e.clientX - canvasRect.left + canvas.scrollLeft - dragOffset.x;
+      const y = e.clientY - canvasRect.top + canvas.scrollTop - dragOffset.y;
       setNodes((prev) =>
         prev.map((n) =>
-          n.id === dragging ? { ...n, x: e.clientX - canvasRect.left - dragOffset.x, y: e.clientY - canvasRect.top - dragOffset.y } : n
+          n.id === dragging ? { ...n, x, y } : n
         )
       );
     },
@@ -157,11 +161,12 @@ const WorkflowBuilder = () => {
   }, [persistNodes]);
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
+    // pointer events so nodes drag with a finger as well as a mouse
+    window.addEventListener("pointermove", handleMouseMove);
+    window.addEventListener("pointerup", handleMouseUp);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("pointermove", handleMouseMove);
+      window.removeEventListener("pointerup", handleMouseUp);
     };
   }, [handleMouseMove, handleMouseUp]);
 
@@ -248,8 +253,9 @@ const WorkflowBuilder = () => {
   }
 
   return (
-    <div style={{ display: "flex", height: "100vh", paddingTop: 60, position: "relative", zIndex: 1 }}>
+    <div className="wb" style={{ display: "flex", height: "100vh", paddingTop: 60, position: "relative", zIndex: 1 }}>
       <div
+        className="wb-left"
         style={{
           width: 240,
           flexShrink: 0,
@@ -361,6 +367,7 @@ const WorkflowBuilder = () => {
 
       <div
         ref={canvasRef}
+        className="wb-canvas"
         style={{
           flex: 1,
           position: "relative",
@@ -470,7 +477,7 @@ const WorkflowBuilder = () => {
               borderColor: runningNode === n.id ? n.color : selected === n.id ? "rgba(108,192,122,.6)" : C.borderMed,
               boxShadow: runningNode === n.id ? `0 0 0 1px ${n.color}` : "none",
             }}
-            onMouseDown={(e) => handleMouseDown(e, n.id)}
+            onPointerDown={(e) => handleMouseDown(e, n.id)}
             onClick={(e) => {
               e.stopPropagation();
               setSelected(n.id);
@@ -527,6 +534,7 @@ const WorkflowBuilder = () => {
       </div>
 
       <div
+        className="wb-right"
         style={{
           width: 280,
           flexShrink: 0,
