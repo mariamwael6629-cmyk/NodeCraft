@@ -5,7 +5,7 @@ const WorkflowPreview = () => {
   const nodes = [
     { id: 1, x: 40, y: 80, label: "Trigger", sub: "Webhook", color: C.emerald, icon: "⚡" },
     { id: 2, x: 220, y: 30, label: "AI Agent", sub: "GPT-4", color: C.purple, icon: "🤖" },
-    { id: 3, x: 220, y: 140, label: "Filter", sub: "Condition", color: "#F59E0B", icon: "⚖️" },
+    { id: 3, x: 220, y: 140, label: "Filter", sub: "Condition", color: "#D36A2D", icon: "⚖️" },
     { id: 4, x: 400, y: 80, label: "Database", sub: "Write Row", color: "#CF7B4A", icon: "🗄" },
     { id: 5, x: 580, y: 40, label: "Email", sub: "Send", color: C.emerald, icon: "✉️" },
     { id: 6, x: 580, y: 130, label: "Slack", sub: "Notify", color: C.purple, icon: "💬" },

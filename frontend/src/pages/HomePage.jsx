@@ -130,7 +130,7 @@ const HomePage = ({ setPage }) => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
             <div style={{ display: "flex", gap: 6 }}>
-              {["#FF5F57", "#FEBC2E", "#BE6532"].map((c) => (
+              {["#FF5F57", "#DA8452", "#BE6532"].map((c) => (
                 <div key={c} style={{ width: 12, height: 12, borderRadius: "50%", background: c }} />
               ))}
             </div>

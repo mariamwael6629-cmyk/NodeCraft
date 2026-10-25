@@ -37,7 +37,7 @@ TEMPLATES = [
         "node_count": 11, "uses": 5400, "nodes": [], "edges": [],
     },
     {
-        "name": "Social Auto-Post", "category": "Marketing", "icon": "📱", "color": "#F59E0B",
+        "name": "Social Auto-Post", "category": "Marketing", "icon": "📱", "color": "#D36A2D",
         "description": "Generate and schedule posts optimized for each social platform.",
         "node_count": 7, "uses": 3300, "nodes": [], "edges": [],
     },

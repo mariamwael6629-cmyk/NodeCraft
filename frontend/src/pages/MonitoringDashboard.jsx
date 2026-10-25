@@ -165,7 +165,7 @@ const MonitoringDashboard = () => {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {[
               { l: "Running", n: health.running, c: C.emerald },
-              { l: "Paused", n: health.paused, c: "#F59E0B" },
+              { l: "Paused", n: health.paused, c: "#D36A2D" },
               { l: "Error", n: health.error, c: "#EF4444" },
             ].map((s) => (
               <div key={s.l} style={{ display: "flex", justifyContent: "space-between", fontSize: 12 }}>
@@ -188,7 +188,7 @@ const MonitoringDashboard = () => {
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {workflows.map((w) => {
-                const color = w.status === "running" ? C.emerald : w.status === "error" ? "#EF4444" : "#F59E0B";
+                const color = w.status === "running" ? C.emerald : w.status === "error" ? "#EF4444" : "#D36A2D";
                 return (
                   <div
                     key={w.id}
@@ -212,7 +212,7 @@ const MonitoringDashboard = () => {
                       <div style={{ fontSize: 11, color: C.muted }}>Last run: {w.last_run ? timeAgo(w.last_run) : "never"}</div>
                     </div>
                     <div style={{ textAlign: "right", flexShrink: 0 }}>
-                      <div style={{ fontSize: 12, fontWeight: 700, color: w.success_rate > 95 ? C.emeraldGlow : w.success_rate > 90 ? "#F59E0B" : "#EF4444" }}>{w.success_rate}%</div>
+                      <div style={{ fontSize: 12, fontWeight: 700, color: w.success_rate > 95 ? C.emeraldGlow : w.success_rate > 90 ? "#D36A2D" : "#EF4444" }}>{w.success_rate}%</div>
                       <div style={{ fontSize: 10, color: C.muted }}>{w.runs.toLocaleString()} runs</div>
                     </div>
                     <div
@@ -222,7 +222,7 @@ const MonitoringDashboard = () => {
                         padding: "3px 8px",
                         borderRadius: 20,
                         flexShrink: 0,
-                        background: w.status === "running" ? "rgba(159,85,42,.1)" : w.status === "error" ? "rgba(239,68,68,.1)" : "rgba(245,158,11,.1)",
+                        background: w.status === "running" ? "rgba(159,85,42,.1)" : w.status === "error" ? "rgba(239,68,68,.1)" : "rgba(211,106,45,.1)",
                         color,
                         border: `1px solid ${color}30`,
                       }}
@@ -252,7 +252,7 @@ const MonitoringDashboard = () => {
                       borderRadius: "50%",
                       flexShrink: 0,
                       marginTop: 2,
-                      background: e.type === "success" ? C.emerald : e.type === "error" ? "#EF4444" : e.type === "warning" ? "#F59E0B" : "#CF7B4A",
+                      background: e.type === "success" ? C.emerald : e.type === "error" ? "#EF4444" : e.type === "warning" ? "#D36A2D" : "#CF7B4A",
                       boxShadow: e.type === "success" ? `0 0 6px ${C.emerald}50` : e.type === "error" ? "0 0 6px #EF444450" : "none",
                     }}
                   />

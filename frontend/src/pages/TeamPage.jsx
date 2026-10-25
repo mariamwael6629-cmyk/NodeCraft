@@ -173,7 +173,7 @@ const TeamPage = () => {
                         width: 10,
                         height: 10,
                         borderRadius: "50%",
-                        background: m.status === "online" ? C.emerald : m.status === "away" ? "#F59E0B" : "#80766B",
+                        background: m.status === "online" ? C.emerald : m.status === "away" ? "#D36A2D" : "#80766B",
                         border: `2px solid ${C.charcoal}`,
                       }}
                     />

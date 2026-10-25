@@ -30,10 +30,10 @@ export const nodeLibrary = [
   {
     category: "Logic",
     nodes: [
-      { type: "condition", label: "Condition", icon: "⚖️", color: "#F59E0B" },
-      { type: "loop", label: "Loop", icon: "🔁", color: "#F59E0B" },
-      { type: "schedule", label: "Schedule", icon: "⏰", color: "#F59E0B" },
-      { type: "delay", label: "Delay", icon: "⏸", color: "#F59E0B" },
+      { type: "condition", label: "Condition", icon: "⚖️", color: "#D36A2D" },
+      { type: "loop", label: "Loop", icon: "🔁", color: "#D36A2D" },
+      { type: "schedule", label: "Schedule", icon: "⏰", color: "#D36A2D" },
+      { type: "delay", label: "Delay", icon: "⏸", color: "#D36A2D" },
     ],
   },
 ];
@@ -41,7 +41,7 @@ export const nodeLibrary = [
 export const DEFAULT_NODES = [
   { id: 1, x: 120, y: 100, type: "trigger", label: "Webhook Trigger", icon: "⚡", color: C.emerald, sub: "POST /lead" },
   { id: 2, x: 340, y: 60, type: "llm", label: "Qualify Lead", icon: "🧠", color: C.purple, sub: "GPT-4o" },
-  { id: 3, x: 340, y: 180, type: "condition", label: "Score ≥ 80?", icon: "⚖️", color: "#F59E0B", sub: "Filter" },
+  { id: 3, x: 340, y: 180, type: "condition", label: "Score ≥ 80?", icon: "⚖️", color: "#D36A2D", sub: "Filter" },
   { id: 4, x: 560, y: 100, type: "email", label: "Send Outreach", icon: "✉️", color: C.emerald, sub: "Personalized" },
   { id: 5, x: 560, y: 220, type: "db-write", label: "Log to CRM", icon: "🗄", color: "#CF7B4A", sub: "Salesforce" },
 ];

@@ -189,7 +189,7 @@ const ThemeSection = ({ settings, onSave }) => (
     <h2 style={{ fontSize: 22, fontWeight: 800, marginBottom: 24 }}>Appearance</h2>
     <div style={{ fontSize: 12, color: C.muted, marginBottom: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: ".3px" }}>Accent Color</div>
     <div style={{ display: "flex", gap: 10, marginBottom: 32 }}>
-      {[C.emerald, C.purple, "#CF7B4A", "#F59E0B", "#EF4444", "#CF7B4A"].map((c) => (
+      {[C.emerald, C.purple, "#CF7B4A", "#D36A2D", "#EF4444", "#CF7B4A"].map((c) => (
         <div
           key={c}
           style={{

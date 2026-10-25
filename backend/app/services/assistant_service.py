@@ -10,7 +10,7 @@ KEYWORD_NODES = {
     "slack": {"type": "slack", "label": "Slack Notify", "icon": "💬", "color": "#8B5CF6", "sub": "Notification"},
     "lead": {"type": "llm", "label": "Qualify Lead", "icon": "🧠", "color": "#8B5CF6", "sub": "GPT-4o"},
     "crm": {"type": "db-write", "label": "Log to CRM", "icon": "🗄", "color": "#3B82F6", "sub": "Write Row"},
-    "schedule": {"type": "schedule", "label": "Schedule", "icon": "⏰", "color": "#F59E0B", "sub": "Trigger"},
+    "schedule": {"type": "schedule", "label": "Schedule", "icon": "⏰", "color": "#D36A2D", "sub": "Trigger"},
     "support": {"type": "ai-agent", "label": "Triage Ticket", "icon": "🤖", "color": "#8B5CF6", "sub": "AI Agent"},
     "webhook": {"type": "webhook", "label": "Webhook Trigger", "icon": "⚡", "color": "#10B981", "sub": "Incoming"},
 }
