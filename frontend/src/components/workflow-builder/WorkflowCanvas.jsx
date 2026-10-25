@@ -11,8 +11,8 @@ const WorkflowCanvas = ({ canvasRef, nodes, edges, selected, setSelected, runnin
       flex: 1,
       position: "relative",
       overflow: "hidden",
-      background: `radial-gradient(ellipse at 40% 30%, rgba(16,185,129,.04) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 70%, rgba(139,92,246,.04) 0%, transparent 60%),
+      background: `radial-gradient(ellipse at 40% 30%, rgba(159,85,42,.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, rgba(207,123,74,.04) 0%, transparent 60%),
                 ${C.charcoal}`,
       backgroundImage: `
       linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),

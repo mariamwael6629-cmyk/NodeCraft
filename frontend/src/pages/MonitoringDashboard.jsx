@@ -21,7 +21,7 @@ const BarChart = ({ data }) => (
         style={{
           flex: 1,
           borderRadius: "4px 4px 0 0",
-          background: v > 90 ? "rgba(16,185,129,.7)" : v > 70 ? "rgba(16,185,129,.4)" : "rgba(239,68,68,.4)",
+          background: v > 90 ? "rgba(159,85,42,.7)" : v > 70 ? "rgba(159,85,42,.4)" : "rgba(239,68,68,.4)",
           height: `${v}%`,
           transition: "all .3s",
         }}
@@ -103,9 +103,9 @@ const MonitoringDashboard = () => {
                 borderRadius: 8,
                 fontSize: 12,
                 fontWeight: 600,
-                background: timeRange === t ? "rgba(16,185,129,.15)" : "transparent",
+                background: timeRange === t ? "rgba(159,85,42,.15)" : "transparent",
                 color: timeRange === t ? C.emeraldGlow : C.muted,
-                border: `1px solid ${timeRange === t ? "rgba(16,185,129,.3)" : C.border}`,
+                border: `1px solid ${timeRange === t ? "rgba(159,85,42,.3)" : C.border}`,
                 cursor: "pointer",
                 transition: "all .2s",
               }}
@@ -121,7 +121,7 @@ const MonitoringDashboard = () => {
           <div key={s.label} className="stat-card">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
               <span style={{ fontSize: 22 }}>{s.icon}</span>
-              <span style={{ fontSize: 11, fontWeight: 600, padding: "3px 8px", borderRadius: 20, background: "rgba(16,185,129,.1)", color: C.emeraldGlow }}>{s.delta}</span>
+              <span style={{ fontSize: 11, fontWeight: 600, padding: "3px 8px", borderRadius: 20, background: "rgba(159,85,42,.1)", color: C.emeraldGlow }}>{s.delta}</span>
             </div>
             <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: "-1px", marginBottom: 4 }}>{s.val}</div>
             <div style={{ fontSize: 12, color: C.muted }}>{s.label}</div>
@@ -222,7 +222,7 @@ const MonitoringDashboard = () => {
                         padding: "3px 8px",
                         borderRadius: 20,
                         flexShrink: 0,
-                        background: w.status === "running" ? "rgba(16,185,129,.1)" : w.status === "error" ? "rgba(239,68,68,.1)" : "rgba(245,158,11,.1)",
+                        background: w.status === "running" ? "rgba(159,85,42,.1)" : w.status === "error" ? "rgba(239,68,68,.1)" : "rgba(245,158,11,.1)",
                         color,
                         border: `1px solid ${color}30`,
                       }}
@@ -252,7 +252,7 @@ const MonitoringDashboard = () => {
                       borderRadius: "50%",
                       flexShrink: 0,
                       marginTop: 2,
-                      background: e.type === "success" ? C.emerald : e.type === "error" ? "#EF4444" : e.type === "warning" ? "#F59E0B" : "#3B82F6",
+                      background: e.type === "success" ? C.emerald : e.type === "error" ? "#EF4444" : e.type === "warning" ? "#F59E0B" : "#CF7B4A",
                       boxShadow: e.type === "success" ? `0 0 6px ${C.emerald}50` : e.type === "error" ? "0 0 6px #EF444450" : "none",
                     }}
                   />

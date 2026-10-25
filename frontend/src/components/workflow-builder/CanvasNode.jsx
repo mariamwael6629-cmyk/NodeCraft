@@ -8,8 +8,8 @@ const CanvasNode = ({ node: n, selected, runningNode, handleMouseDown, setSelect
       top: n.y,
       width: 160,
       background: runningNode === n.id ? `linear-gradient(135deg,${n.color}30,${n.color}15)` : `linear-gradient(135deg,${n.color}15,rgba(0,0,0,.2))`,
-      borderColor: runningNode === n.id ? n.color : selected === n.id ? "rgba(16,185,129,.6)" : C.borderMed,
-      boxShadow: runningNode === n.id ? `0 0 20px ${n.color}50,0 0 40px ${n.color}20` : selected === n.id ? "0 0 20px rgba(16,185,129,.2)" : "none",
+      borderColor: runningNode === n.id ? n.color : selected === n.id ? "rgba(159,85,42,.6)" : C.borderMed,
+      boxShadow: runningNode === n.id ? `0 0 20px ${n.color}50,0 0 40px ${n.color}20` : selected === n.id ? "0 0 20px rgba(159,85,42,.2)" : "none",
     }}
     onMouseDown={(e) => handleMouseDown(e, n.id)}
     onClick={(e) => {

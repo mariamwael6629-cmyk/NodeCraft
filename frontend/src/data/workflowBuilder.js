@@ -13,9 +13,9 @@ export const nodeLibrary = [
   {
     category: "Data",
     nodes: [
-      { type: "db-read", label: "DB Read", icon: "🗄", color: "#3B82F6" },
-      { type: "db-write", label: "DB Write", icon: "💾", color: "#3B82F6" },
-      { type: "transform", label: "Transform", icon: "🔄", color: "#3B82F6" },
+      { type: "db-read", label: "DB Read", icon: "🗄", color: "#CF7B4A" },
+      { type: "db-write", label: "DB Write", icon: "💾", color: "#CF7B4A" },
+      { type: "transform", label: "Transform", icon: "🔄", color: "#CF7B4A" },
     ],
   },
   {
@@ -43,7 +43,7 @@ export const DEFAULT_NODES = [
   { id: 2, x: 340, y: 60, type: "llm", label: "Qualify Lead", icon: "🧠", color: C.purple, sub: "GPT-4o" },
   { id: 3, x: 340, y: 180, type: "condition", label: "Score ≥ 80?", icon: "⚖️", color: "#F59E0B", sub: "Filter" },
   { id: 4, x: 560, y: 100, type: "email", label: "Send Outreach", icon: "✉️", color: C.emerald, sub: "Personalized" },
-  { id: 5, x: 560, y: 220, type: "db-write", label: "Log to CRM", icon: "🗄", color: "#3B82F6", sub: "Salesforce" },
+  { id: 5, x: 560, y: 220, type: "db-write", label: "Log to CRM", icon: "🗄", color: "#CF7B4A", sub: "Salesforce" },
 ];
 export const DEFAULT_EDGES = [
   { from: 1, to: 2 },

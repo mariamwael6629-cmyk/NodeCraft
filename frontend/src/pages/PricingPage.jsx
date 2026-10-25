@@ -32,7 +32,7 @@ const PricingPage = () => {
             <div className="toggle-knob" />
           </div>
           <span style={{ fontSize: 14, color: annual ? C.ivory : C.muted, fontWeight: annual ? 600 : 400 }}>Annual</span>
-          <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 20, background: "rgba(16,185,129,.1)", color: C.emeraldGlow, border: `1px solid rgba(16,185,129,.2)` }}>
+          <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 20, background: "rgba(159,85,42,.1)", color: C.emeraldGlow, border: `1px solid rgba(159,85,42,.2)` }}>
             Save 20%
           </span>
         </div>
@@ -55,7 +55,7 @@ const PricingPage = () => {
                       top: -12,
                       left: "50%",
                       transform: "translateX(-50%)",
-                      background: "linear-gradient(135deg,#10B981,#8B5CF6)",
+                      background: "#9F552A",
                       borderRadius: 20,
                       padding: "4px 16px",
                       fontSize: 11,

@@ -67,9 +67,9 @@ const TemplatesPage = ({ setPage }) => {
                 fontSize: 12,
                 fontWeight: 600,
                 cursor: "pointer",
-                background: activeFilter === c ? "rgba(139,92,246,.2)" : "transparent",
+                background: activeFilter === c ? "rgba(207,123,74,.2)" : "transparent",
                 color: activeFilter === c ? C.purpleGlow : C.muted,
-                border: `1px solid ${activeFilter === c ? "rgba(139,92,246,.4)" : C.border}`,
+                border: `1px solid ${activeFilter === c ? "rgba(207,123,74,.4)" : C.border}`,
                 transition: "all .2s",
               }}
             >

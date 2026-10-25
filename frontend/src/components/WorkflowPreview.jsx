@@ -6,7 +6,7 @@ const WorkflowPreview = () => {
     { id: 1, x: 40, y: 80, label: "Trigger", sub: "Webhook", color: C.emerald, icon: "⚡" },
     { id: 2, x: 220, y: 30, label: "AI Agent", sub: "GPT-4", color: C.purple, icon: "🤖" },
     { id: 3, x: 220, y: 140, label: "Filter", sub: "Condition", color: "#F59E0B", icon: "⚖️" },
-    { id: 4, x: 400, y: 80, label: "Database", sub: "Write Row", color: "#3B82F6", icon: "🗄" },
+    { id: 4, x: 400, y: 80, label: "Database", sub: "Write Row", color: "#CF7B4A", icon: "🗄" },
     { id: 5, x: 580, y: 40, label: "Email", sub: "Send", color: C.emerald, icon: "✉️" },
     { id: 6, x: 580, y: 130, label: "Slack", sub: "Notify", color: C.purple, icon: "💬" },
   ];
@@ -37,7 +37,7 @@ const WorkflowPreview = () => {
         </defs>
         {edges.map((e, i) => (
           <g key={i}>
-            <line x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2} stroke="rgba(16,185,129,.15)" strokeWidth="2" />
+            <line x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2} stroke="rgba(159,85,42,.15)" strokeWidth="2" />
             <line
               x1={e.x1}
               y1={e.y1}

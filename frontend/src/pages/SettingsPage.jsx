@@ -81,7 +81,7 @@ const ApiKeysSection = () => {
     <div style={{ maxWidth: 640 }}>
       <h2 style={{ fontSize: 22, fontWeight: 800, marginBottom: 24 }}>API Keys</h2>
       {newKey && (
-        <div className="glass-card" style={{ padding: 16, marginBottom: 16, borderColor: "rgba(16,185,129,.3)" }}>
+        <div className="glass-card" style={{ padding: 16, marginBottom: 16, borderColor: "rgba(159,85,42,.3)" }}>
           <div style={{ fontSize: 12, color: C.emeraldGlow, marginBottom: 6, fontWeight: 600 }}>New key created — copy it now, it won't be shown again:</div>
           <div style={{ fontFamily: "monospace", fontSize: 12, wordBreak: "break-all" }}>{newKey.key}</div>
         </div>
@@ -145,9 +145,9 @@ const IntegrationsSection = () => {
                 fontSize: 11,
                 fontWeight: 600,
                 cursor: "pointer",
-                background: i.connected ? "rgba(16,185,129,.1)" : "rgba(255,255,255,.06)",
+                background: i.connected ? "rgba(159,85,42,.1)" : "rgba(255,255,255,.06)",
                 color: i.connected ? C.emeraldGlow : C.muted,
-                border: `1px solid ${i.connected ? "rgba(16,185,129,.3)" : C.border}`,
+                border: `1px solid ${i.connected ? "rgba(159,85,42,.3)" : C.border}`,
               }}
               onClick={() => toggle(i.id)}
             >
@@ -189,7 +189,7 @@ const ThemeSection = ({ settings, onSave }) => (
     <h2 style={{ fontSize: 22, fontWeight: 800, marginBottom: 24 }}>Appearance</h2>
     <div style={{ fontSize: 12, color: C.muted, marginBottom: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: ".3px" }}>Accent Color</div>
     <div style={{ display: "flex", gap: 10, marginBottom: 32 }}>
-      {[C.emerald, C.purple, "#3B82F6", "#F59E0B", "#EF4444", "#EC4899"].map((c) => (
+      {[C.emerald, C.purple, "#CF7B4A", "#F59E0B", "#EF4444", "#CF7B4A"].map((c) => (
         <div
           key={c}
           style={{
@@ -220,8 +220,8 @@ const ThemeSection = ({ settings, onSave }) => (
             cursor: "pointer",
             fontSize: 13,
             fontWeight: 600,
-            background: t === settings.canvas_theme ? "rgba(16,185,129,.1)" : "rgba(255,255,255,.04)",
-            border: `1px solid ${t === settings.canvas_theme ? "rgba(16,185,129,.3)" : C.border}`,
+            background: t === settings.canvas_theme ? "rgba(159,85,42,.1)" : "rgba(255,255,255,.04)",
+            border: `1px solid ${t === settings.canvas_theme ? "rgba(159,85,42,.3)" : C.border}`,
             color: t === settings.canvas_theme ? C.emeraldGlow : C.muted,
           }}
         >
@@ -269,7 +269,7 @@ const SettingsPage = () => {
 
   return (
     <div style={{ position: "relative", zIndex: 1, display: "flex", height: "100vh", paddingTop: 60 }}>
-      <div style={{ width: 220, borderRight: `1px solid ${C.border}`, background: "rgba(17,24,39,.95)", padding: 16 }}>
+      <div style={{ width: 220, borderRight: `1px solid ${C.border}`, background: "rgba(31,28,25,.95)", padding: 16 }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: C.muted, marginBottom: 12, letterSpacing: "1px", textTransform: "uppercase", padding: "0 4px" }}>Settings</div>
         {sections.map((s) => (
           <div key={s.id} className={`sidebar-item${activeSection === s.id ? " active" : ""}`} onClick={() => setActiveSection(s.id)}>

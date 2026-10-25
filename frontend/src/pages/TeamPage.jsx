@@ -173,7 +173,7 @@ const TeamPage = () => {
                         width: 10,
                         height: 10,
                         borderRadius: "50%",
-                        background: m.status === "online" ? C.emerald : m.status === "away" ? "#F59E0B" : "#6B7280",
+                        background: m.status === "online" ? C.emerald : m.status === "away" ? "#F59E0B" : "#80766B",
                         border: `2px solid ${C.charcoal}`,
                       }}
                     />
@@ -189,9 +189,9 @@ const TeamPage = () => {
                       fontWeight: 600,
                       padding: "3px 10px",
                       borderRadius: 20,
-                      background: m.role === "Admin" ? "rgba(139,92,246,.15)" : "rgba(255,255,255,.06)",
+                      background: m.role === "Admin" ? "rgba(207,123,74,.15)" : "rgba(255,255,255,.06)",
                       color: m.role === "Admin" ? C.purpleGlow : C.muted,
-                      border: `1px solid ${m.role === "Admin" ? "rgba(139,92,246,.3)" : C.border}`,
+                      border: `1px solid ${m.role === "Admin" ? "rgba(207,123,74,.3)" : C.border}`,
                     }}
                   >
                     {m.role}

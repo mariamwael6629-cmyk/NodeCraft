@@ -38,7 +38,7 @@ const Navbar = ({ page, setPage }) => {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "14px 40px",
-          background: "rgba(17,24,39,.8)",
+          background: "rgba(31,28,25,.8)",
           backdropFilter: "blur(24px)",
           borderBottom: `1px solid ${C.border}`,
         }}
@@ -49,7 +49,7 @@ const Navbar = ({ page, setPage }) => {
               width: 34,
               height: 34,
               borderRadius: 10,
-              background: "linear-gradient(135deg,#10B981,#8B5CF6)",
+              background: "#9F552A",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

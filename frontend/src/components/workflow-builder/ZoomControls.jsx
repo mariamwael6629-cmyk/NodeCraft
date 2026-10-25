@@ -10,7 +10,7 @@ const ZoomControls = () => (
           height: 36,
           borderRadius: 8,
           border: `1px solid ${C.border}`,
-          background: "rgba(17,24,39,.9)",
+          background: "rgba(31,28,25,.9)",
           color: C.muted,
           fontSize: 16,
           cursor: "pointer",

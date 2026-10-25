@@ -3,12 +3,12 @@ import WorkflowPreview from "../components/WorkflowPreview.jsx";
 
 const HomePage = ({ setPage }) => {
   const features = [
-    { icon: "🎯", title: "Visual Node Builder", desc: "Drag, connect, configure. Build complex automations without touching code." },
-    { icon: "🧠", title: "AI-Powered Generation", desc: "Describe your workflow in plain language. NodeCraft builds it instantly." },
-    { icon: "⚡", title: "Real-time Execution", desc: "Watch your automations run live. Debug issues before they go to production." },
-    { icon: "🔒", title: "Enterprise Security", desc: "SOC 2 Type II. End-to-end encryption. Granular access controls." },
-    { icon: "🌐", title: "500+ Integrations", desc: "Connect every tool in your stack. APIs, databases, SaaS apps, webhooks." },
-    { icon: "📊", title: "Deep Analytics", desc: "Track performance, errors, and ROI across all your automations." },
+    { icon: "01", title: "Visual Node Builder", desc: "Drag, connect, configure. Build complex automations without touching code." },
+    { icon: "02", title: "AI-Powered Generation", desc: "Describe your workflow in plain language. NodeCraft builds it instantly." },
+    { icon: "03", title: "Real-time Execution", desc: "Watch your automations run live. Debug issues before they go to production." },
+    { icon: "04", title: "Enterprise Security", desc: "SOC 2 Type II. End-to-end encryption. Granular access controls." },
+    { icon: "05", title: "500+ Integrations", desc: "Connect every tool in your stack. APIs, databases, SaaS apps, webhooks." },
+    { icon: "06", title: "Deep Analytics", desc: "Track performance, errors, and ROI across all your automations." },
   ];
   const metrics = [
     { n: "2.4M+", l: "Workflows Run Daily" },
@@ -39,7 +39,7 @@ const HomePage = ({ setPage }) => {
             width: 600,
             height: 400,
             borderRadius: "50%",
-            background: "radial-gradient(ellipse, rgba(16,185,129,.12) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(159,85,42,.12) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -52,13 +52,13 @@ const HomePage = ({ setPage }) => {
             width: 400,
             height: 300,
             borderRadius: "50%",
-            background: "radial-gradient(ellipse, rgba(139,92,246,.08) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(207,123,74,.08) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
 
         <div className="tag" style={{ marginBottom: 24, animation: "slide-in .6s ease" }}>
-          ✦ AI Workflow Automation Platform
+          AI Workflow Automation Platform
         </div>
         <h1
           style={{
@@ -130,7 +130,7 @@ const HomePage = ({ setPage }) => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
             <div style={{ display: "flex", gap: 6 }}>
-              {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => (
+              {["#FF5F57", "#FEBC2E", "#BE6532"].map((c) => (
                 <div key={c} style={{ width: 12, height: 12, borderRadius: "50%", background: c }} />
               ))}
             </div>
@@ -138,12 +138,12 @@ const HomePage = ({ setPage }) => {
             <div
               style={{
                 marginLeft: "auto",
-                background: "rgba(16,185,129,.1)",
+                background: "rgba(159,85,42,.1)",
                 color: C.emeraldGlow,
                 fontSize: 11,
                 padding: "3px 10px",
                 borderRadius: 20,
-                border: `1px solid rgba(16,185,129,.2)`,
+                border: `1px solid rgba(159,85,42,.2)`,
               }}
             >
               ● LIVE
@@ -172,7 +172,7 @@ const HomePage = ({ setPage }) => {
                 animationDelay: `${i * 0.06}s`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(16,185,129,.3)";
+                e.currentTarget.style.borderColor = "rgba(159,85,42,.3)";
                 e.currentTarget.style.transform = "translateY(-4px)";
               }}
               onMouseLeave={(e) => {
@@ -180,7 +180,7 @@ const HomePage = ({ setPage }) => {
                 e.currentTarget.style.transform = "";
               }}
             >
-              <div style={{ fontSize: 32, marginBottom: 14 }}>{f.icon}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: C.emeraldGlow, marginBottom: 14, letterSpacing: "1px" }}>{f.icon}</div>
               <div style={{ fontSize: 17, fontWeight: 700, marginBottom: 8 }}>{f.title}</div>
               <div style={{ fontSize: 14, color: C.muted, lineHeight: 1.6 }}>{f.desc}</div>
             </div>
@@ -195,8 +195,8 @@ const HomePage = ({ setPage }) => {
             maxWidth: 700,
             margin: "0 auto",
             padding: 56,
-            background: "linear-gradient(135deg,rgba(16,185,129,.08),rgba(139,92,246,.06))",
-            borderColor: "rgba(16,185,129,.2)",
+            background: "rgba(159,85,42,.08)",
+            borderColor: "rgba(159,85,42,.2)",
           }}
         >
           <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-1px", marginBottom: 16 }}>
