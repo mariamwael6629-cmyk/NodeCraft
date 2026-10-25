@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { C } from "../theme.js";
 import { api } from "../api.js";
 import { useAuth } from "../AuthContext.jsx";
+import Glyph from "../components/Glyph.jsx";
 
 const timeAgo = (iso) => {
   const diffMs = Date.now() - new Date(iso).getTime();
@@ -61,7 +62,7 @@ const InviteModal = ({ onClose, onInvited }) => {
               <option>Viewer</option>
             </select>
           </div>
-          {error && <div style={{ color: "#EF4444", fontSize: 12 }}>{error}</div>}
+          {error && <div style={{ color: "#D9533F", fontSize: 12 }}>{error}</div>}
           <button className="btn-emerald" type="submit" disabled={submitting} style={{ marginTop: 8 }}>
             {submitting ? "Sending…" : "Send Invite"}
           </button>
@@ -133,7 +134,7 @@ const TeamPage = () => {
         </button>
       </div>
 
-      {error && <div style={{ color: "#EF4444", fontSize: 13, marginBottom: 16 }}>{error}</div>}
+      {error && <div style={{ color: "#D9533F", fontSize: 13, marginBottom: 16 }}>{error}</div>}
 
       <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 24 }}>
         <div>
@@ -144,7 +145,7 @@ const TeamPage = () => {
                 <div
                   key={m.id}
                   style={{ display: "flex", alignItems: "center", gap: 14, padding: "12px 14px", borderRadius: 12, cursor: "pointer", transition: "background .15s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,.04)")}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(237,230,211,.04)")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
                   <div style={{ position: "relative" }}>
@@ -173,7 +174,7 @@ const TeamPage = () => {
                         width: 10,
                         height: 10,
                         borderRadius: "50%",
-                        background: m.status === "online" ? C.emerald : m.status === "away" ? "#F59E0B" : "#6B7280",
+                        background: m.status === "online" ? C.emerald : m.status === "away" ? "#E8A33A" : "#6B7280",
                         border: `2px solid ${C.charcoal}`,
                       }}
                     />
@@ -189,9 +190,9 @@ const TeamPage = () => {
                       fontWeight: 600,
                       padding: "3px 10px",
                       borderRadius: 20,
-                      background: m.role === "Admin" ? "rgba(139,92,246,.15)" : "rgba(255,255,255,.06)",
+                      background: m.role === "Admin" ? "rgba(201,154,69,.15)" : "rgba(237,230,211,.06)",
                       color: m.role === "Admin" ? C.purpleGlow : C.muted,
-                      border: `1px solid ${m.role === "Admin" ? "rgba(139,92,246,.3)" : C.border}`,
+                      border: `1px solid ${m.role === "Admin" ? "rgba(201,154,69,.3)" : C.border}`,
                     }}
                   >
                     {m.role}
@@ -210,8 +211,8 @@ const TeamPage = () => {
             ) : (
               activity.map((a, i) => (
                 <div key={a.id} style={{ display: "flex", gap: 10, paddingBottom: 14, marginBottom: 14, borderBottom: i < activity.length - 1 ? `1px solid ${C.border}` : "none" }}>
-                  <div style={{ width: 30, height: 30, borderRadius: 8, background: "rgba(255,255,255,.05)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, flexShrink: 0 }}>
-                    {a.icon}
+                  <div style={{ width: 30, height: 30, borderRadius: 8, background: "rgba(237,230,211,.05)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, flexShrink: 0 }}>
+                    <Glyph e={a.icon} size={16} />
                   </div>
                   <div>
                     <div style={{ fontSize: 12, lineHeight: 1.4 }}>
@@ -237,7 +238,7 @@ const TeamPage = () => {
                   <div style={{ fontSize: 13, fontWeight: 600 }}>{p.label}</div>
                   <div style={{ fontSize: 11, color: C.muted }}>{p.desc}</div>
                 </div>
-                <div style={{ background: "rgba(255,255,255,.06)", borderRadius: 20, padding: "3px 10px", fontSize: 11, fontWeight: 700 }}>
+                <div style={{ background: "rgba(237,230,211,.06)", borderRadius: 20, padding: "3px 10px", fontSize: 11, fontWeight: 700 }}>
                   {roleCounts[p.label] || 0} {roleCounts[p.label] === 1 ? "member" : "members"}
                 </div>
               </div>

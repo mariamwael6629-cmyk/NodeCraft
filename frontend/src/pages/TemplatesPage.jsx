@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { C } from "../theme.js";
 import { api } from "../api.js";
 import { useAuth } from "../AuthContext.jsx";
+import Glyph from "../components/Glyph.jsx";
 
 const categories = ["All", "AI Agents", "Marketing", "Sales", "Support", "Data", "HR"];
 
@@ -67,9 +68,9 @@ const TemplatesPage = ({ setPage }) => {
                 fontSize: 12,
                 fontWeight: 600,
                 cursor: "pointer",
-                background: activeFilter === c ? "rgba(139,92,246,.2)" : "transparent",
+                background: activeFilter === c ? "rgba(201,154,69,.2)" : "transparent",
                 color: activeFilter === c ? C.purpleGlow : C.muted,
-                border: `1px solid ${activeFilter === c ? "rgba(139,92,246,.4)" : C.border}`,
+                border: `1px solid ${activeFilter === c ? "rgba(201,154,69,.4)" : C.border}`,
                 transition: "all .2s",
               }}
             >
@@ -79,7 +80,7 @@ const TemplatesPage = ({ setPage }) => {
         </div>
       </div>
 
-      {error && <div style={{ color: "#EF4444", fontSize: 13, marginBottom: 16 }}>{error}</div>}
+      {error && <div style={{ color: "#D9533F", fontSize: 13, marginBottom: 16 }}>{error}</div>}
 
       {loading ? (
         <div style={{ textAlign: "center", color: C.muted, padding: 60 }}>Loading templates…</div>
@@ -88,7 +89,7 @@ const TemplatesPage = ({ setPage }) => {
           {filtered.map((t) => (
             <div key={t.id} className="template-card" onClick={() => useTemplate(t)}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
-                <span style={{ fontSize: 28 }}>{t.icon}</span>
+                <Glyph e={t.icon} size={26} />
                 <div
                   style={{
                     fontSize: 10,

@@ -75,7 +75,7 @@ const AuthModal = ({ onClose }) => {
             />
           </div>
 
-          {authError && <div style={{ color: "#EF4444", fontSize: 12 }}>{authError}</div>}
+          {authError && <div style={{ color: "#D9533F", fontSize: 12 }}>{authError}</div>}
 
           <button className="btn-emerald" type="submit" disabled={submitting} style={{ marginTop: 8 }}>
             {submitting ? "Please wait…" : mode === "login" ? "Sign in" : "Create account"}

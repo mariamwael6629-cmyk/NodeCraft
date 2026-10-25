@@ -28,6 +28,7 @@ const Navbar = ({ page, setPage }) => {
   return (
     <>
       <nav
+        className="nc-nav"
         style={{
           position: "fixed",
           top: 0,
@@ -38,8 +39,7 @@ const Navbar = ({ page, setPage }) => {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "14px 40px",
-          background: "rgba(17,24,39,.8)",
-          backdropFilter: "blur(24px)",
+          background: C.charcoal,
           borderBottom: `1px solid ${C.border}`,
         }}
       >
@@ -48,24 +48,24 @@ const Navbar = ({ page, setPage }) => {
             style={{
               width: 34,
               height: 34,
-              borderRadius: 10,
-              background: "linear-gradient(135deg,#10B981,#8B5CF6)",
+              borderRadius: 4,
+              background: "#EDE6D3",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 16,
-              fontWeight: 800,
-              color: "white",
             }}
+            aria-hidden="true"
           >
-            ⬡
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#161A16" strokeWidth="1.8" strokeLinecap="round">
+              <path d="M7 3v18M17 3v18M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
           </div>
-          <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: "-.3px" }}>
+          <span style={{ fontSize: 19, fontWeight: 700, fontFamily: "'Cabin Condensed', sans-serif" }}>
             <span style={{ color: C.ivory }}>Node</span>
             <span className="gradient-text">Craft</span>
           </span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
+        <div className="nc-nav-items" style={{ display: "flex", alignItems: "center", gap: 2 }}>
           {navItems.map((n) => (
             <span key={n.id} className={`nav-item${page === n.id ? " active" : ""}`} onClick={() => setPage(n.id)}>
               {n.label}
@@ -102,7 +102,7 @@ const Navbar = ({ page, setPage }) => {
               Sign in
             </button>
           )}
-          <button className="btn-emerald" style={{ padding: "8px 18px", fontSize: 13 }} onClick={goToBuilder}>
+          <button className="btn-emerald nc-nav-cta" style={{ padding: "8px 18px", fontSize: 13 }} onClick={goToBuilder}>
             Start Building
           </button>
         </div>

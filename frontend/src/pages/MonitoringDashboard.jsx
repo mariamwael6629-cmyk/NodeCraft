@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { C } from "../theme.js";
 import { api } from "../api.js";
 import { useAuth } from "../AuthContext.jsx";
+import Glyph from "../components/Glyph.jsx";
 
 const timeAgo = (iso) => {
   const diffMs = Date.now() - new Date(iso).getTime();
@@ -21,7 +22,7 @@ const BarChart = ({ data }) => (
         style={{
           flex: 1,
           borderRadius: "4px 4px 0 0",
-          background: v > 90 ? "rgba(16,185,129,.7)" : v > 70 ? "rgba(16,185,129,.4)" : "rgba(239,68,68,.4)",
+          background: v > 90 ? "rgba(108,192,122,.7)" : v > 70 ? "rgba(108,192,122,.4)" : "rgba(217,83,63,.4)",
           height: `${v}%`,
           transition: "all .3s",
         }}
@@ -78,7 +79,7 @@ const MonitoringDashboard = () => {
 
   if (error) {
     return (
-      <div style={{ position: "relative", zIndex: 1, paddingTop: 140, textAlign: "center", color: "#EF4444" }}>{error}</div>
+      <div style={{ position: "relative", zIndex: 1, paddingTop: 140, textAlign: "center", color: "#D9533F" }}>{error}</div>
     );
   }
 
@@ -103,9 +104,9 @@ const MonitoringDashboard = () => {
                 borderRadius: 8,
                 fontSize: 12,
                 fontWeight: 600,
-                background: timeRange === t ? "rgba(16,185,129,.15)" : "transparent",
+                background: timeRange === t ? "rgba(108,192,122,.15)" : "transparent",
                 color: timeRange === t ? C.emeraldGlow : C.muted,
-                border: `1px solid ${timeRange === t ? "rgba(16,185,129,.3)" : C.border}`,
+                border: `1px solid ${timeRange === t ? "rgba(108,192,122,.3)" : C.border}`,
                 cursor: "pointer",
                 transition: "all .2s",
               }}
@@ -116,12 +117,12 @@ const MonitoringDashboard = () => {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginBottom: 24 }}>
+      <div className="nc-stack" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginBottom: 24 }}>
         {stats.stats.map((s) => (
           <div key={s.label} className="stat-card">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
-              <span style={{ fontSize: 22 }}>{s.icon}</span>
-              <span style={{ fontSize: 11, fontWeight: 600, padding: "3px 8px", borderRadius: 20, background: "rgba(16,185,129,.1)", color: C.emeraldGlow }}>{s.delta}</span>
+              <Glyph e={s.icon} size={22} />
+              <span style={{ fontSize: 11, fontWeight: 600, padding: "3px 8px", borderRadius: 20, background: "rgba(108,192,122,.1)", color: C.emeraldGlow }}>{s.delta}</span>
             </div>
             <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: "-1px", marginBottom: 4 }}>{s.val}</div>
             <div style={{ fontSize: 12, color: C.muted }}>{s.label}</div>
@@ -129,7 +130,7 @@ const MonitoringDashboard = () => {
         ))}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 20, marginBottom: 20 }}>
+      <div className="nc-stack" style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 20, marginBottom: 20 }}>
         <div className="glass-card" style={{ padding: 24 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div style={{ fontWeight: 700, fontSize: 15 }}>Execution Success Rate</div>
@@ -142,7 +143,7 @@ const MonitoringDashboard = () => {
           <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 20 }}>Overall Health</div>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
             <svg width="120" height="120">
-              <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.06)" strokeWidth="12" />
+              <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(237,230,211,.06)" strokeWidth="12" />
               <circle
                 cx="60"
                 cy="60"
@@ -165,8 +166,8 @@ const MonitoringDashboard = () => {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {[
               { l: "Running", n: health.running, c: C.emerald },
-              { l: "Paused", n: health.paused, c: "#F59E0B" },
-              { l: "Error", n: health.error, c: "#EF4444" },
+              { l: "Paused", n: health.paused, c: "#E8A33A" },
+              { l: "Error", n: health.error, c: "#D9533F" },
             ].map((s) => (
               <div key={s.l} style={{ display: "flex", justifyContent: "space-between", fontSize: 12 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -180,7 +181,7 @@ const MonitoringDashboard = () => {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "3fr 2fr", gap: 20 }}>
+      <div className="nc-stack" style={{ display: "grid", gridTemplateColumns: "3fr 2fr", gap: 20 }}>
         <div className="glass-card" style={{ padding: 24 }}>
           <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Workflow Status</div>
           {workflows.length === 0 ? (
@@ -188,12 +189,12 @@ const MonitoringDashboard = () => {
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {workflows.map((w) => {
-                const color = w.status === "running" ? C.emerald : w.status === "error" ? "#EF4444" : "#F59E0B";
+                const color = w.status === "running" ? C.emerald : w.status === "error" ? "#D9533F" : "#E8A33A";
                 return (
                   <div
                     key={w.id}
                     style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 14px", borderRadius: 12, cursor: "pointer", transition: "background .15s" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,.04)")}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(237,230,211,.04)")}
                     onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                   >
                     <div
@@ -212,7 +213,7 @@ const MonitoringDashboard = () => {
                       <div style={{ fontSize: 11, color: C.muted }}>Last run: {w.last_run ? timeAgo(w.last_run) : "never"}</div>
                     </div>
                     <div style={{ textAlign: "right", flexShrink: 0 }}>
-                      <div style={{ fontSize: 12, fontWeight: 700, color: w.success_rate > 95 ? C.emeraldGlow : w.success_rate > 90 ? "#F59E0B" : "#EF4444" }}>{w.success_rate}%</div>
+                      <div style={{ fontSize: 12, fontWeight: 700, color: w.success_rate > 95 ? C.emeraldGlow : w.success_rate > 90 ? "#E8A33A" : "#D9533F" }}>{w.success_rate}%</div>
                       <div style={{ fontSize: 10, color: C.muted }}>{w.runs.toLocaleString()} runs</div>
                     </div>
                     <div
@@ -222,7 +223,7 @@ const MonitoringDashboard = () => {
                         padding: "3px 8px",
                         borderRadius: 20,
                         flexShrink: 0,
-                        background: w.status === "running" ? "rgba(16,185,129,.1)" : w.status === "error" ? "rgba(239,68,68,.1)" : "rgba(245,158,11,.1)",
+                        background: w.status === "running" ? "rgba(108,192,122,.1)" : w.status === "error" ? "rgba(217,83,63,.1)" : "rgba(232,163,58,.1)",
                         color,
                         border: `1px solid ${color}30`,
                       }}
@@ -252,8 +253,8 @@ const MonitoringDashboard = () => {
                       borderRadius: "50%",
                       flexShrink: 0,
                       marginTop: 2,
-                      background: e.type === "success" ? C.emerald : e.type === "error" ? "#EF4444" : e.type === "warning" ? "#F59E0B" : "#3B82F6",
-                      boxShadow: e.type === "success" ? `0 0 6px ${C.emerald}50` : e.type === "error" ? "0 0 6px #EF444450" : "none",
+                      background: e.type === "success" ? C.emerald : e.type === "error" ? "#D9533F" : e.type === "warning" ? "#E8A33A" : "#6FA3C7",
+                      boxShadow: e.type === "success" ? `0 0 6px ${C.emerald}50` : e.type === "error" ? "0 0 6px #D9533F50" : "none",
                     }}
                   />
                   <div>

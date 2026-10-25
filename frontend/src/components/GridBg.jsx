@@ -6,8 +6,8 @@ const GridBg = () => (
       zIndex: 0,
       pointerEvents: "none",
       backgroundImage: `
-      linear-gradient(rgba(16,185,129,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16,185,129,.04) 1px, transparent 1px)
+      linear-gradient(rgba(108,192,122,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(108,192,122,.04) 1px, transparent 1px)
     `,
       backgroundSize: "60px 60px",
       animation: "grid-scroll 8s linear infinite",

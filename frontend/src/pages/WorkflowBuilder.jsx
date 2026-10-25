@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { C } from "../theme.js";
 import { api } from "../api.js";
 import { useAuth } from "../AuthContext.jsx";
+import Glyph from "../components/Glyph.jsx";
 
 const nodeLibrary = [
   {
@@ -15,9 +16,9 @@ const nodeLibrary = [
   {
     category: "Data",
     nodes: [
-      { type: "db-read", label: "DB Read", icon: "🗄", color: "#3B82F6" },
-      { type: "db-write", label: "DB Write", icon: "💾", color: "#3B82F6" },
-      { type: "transform", label: "Transform", icon: "🔄", color: "#3B82F6" },
+      { type: "db-read", label: "DB Read", icon: "🗄", color: "#6FA3C7" },
+      { type: "db-write", label: "DB Write", icon: "💾", color: "#6FA3C7" },
+      { type: "transform", label: "Transform", icon: "🔄", color: "#6FA3C7" },
     ],
   },
   {
@@ -32,10 +33,10 @@ const nodeLibrary = [
   {
     category: "Logic",
     nodes: [
-      { type: "condition", label: "Condition", icon: "⚖️", color: "#F59E0B" },
-      { type: "loop", label: "Loop", icon: "🔁", color: "#F59E0B" },
-      { type: "schedule", label: "Schedule", icon: "⏰", color: "#F59E0B" },
-      { type: "delay", label: "Delay", icon: "⏸", color: "#F59E0B" },
+      { type: "condition", label: "Condition", icon: "⚖️", color: "#E8A33A" },
+      { type: "loop", label: "Loop", icon: "🔁", color: "#E8A33A" },
+      { type: "schedule", label: "Schedule", icon: "⏰", color: "#E8A33A" },
+      { type: "delay", label: "Delay", icon: "⏸", color: "#E8A33A" },
     ],
   },
 ];
@@ -43,9 +44,9 @@ const nodeLibrary = [
 const DEFAULT_NODES = [
   { id: 1, x: 120, y: 100, type: "trigger", label: "Webhook Trigger", icon: "⚡", color: C.emerald, sub: "POST /lead" },
   { id: 2, x: 340, y: 60, type: "llm", label: "Qualify Lead", icon: "🧠", color: C.purple, sub: "GPT-4o" },
-  { id: 3, x: 340, y: 180, type: "condition", label: "Score ≥ 80?", icon: "⚖️", color: "#F59E0B", sub: "Filter" },
+  { id: 3, x: 340, y: 180, type: "condition", label: "Score ≥ 80?", icon: "⚖️", color: "#E8A33A", sub: "Filter" },
   { id: 4, x: 560, y: 100, type: "email", label: "Send Outreach", icon: "✉️", color: C.emerald, sub: "Personalized" },
-  { id: 5, x: 560, y: 220, type: "db-write", label: "Log to CRM", icon: "🗄", color: "#3B82F6", sub: "Salesforce" },
+  { id: 5, x: 560, y: 220, type: "db-write", label: "Log to CRM", icon: "🗄", color: "#6FA3C7", sub: "Salesforce" },
 ];
 const DEFAULT_EDGES = [
   { from: 1, to: 2 },
@@ -253,7 +254,7 @@ const WorkflowBuilder = () => {
           width: 240,
           flexShrink: 0,
           borderRight: `1px solid ${C.border}`,
-          background: "rgba(17,24,39,.95)",
+          background: "rgba(22,26,22,.95)",
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",
@@ -298,9 +299,8 @@ const WorkflowBuilder = () => {
                     color: C.muted,
                     display: "flex",
                     justifyContent: "space-between",
-                    textTransform: "uppercase",
                     letterSpacing: "1px",
-                    background: expandedCategory === cat.category ? "rgba(255,255,255,.04)" : "none",
+                    background: expandedCategory === cat.category ? "rgba(237,230,211,.04)" : "none",
                   }}
                 >
                   {cat.category}
@@ -321,7 +321,7 @@ const WorkflowBuilder = () => {
                         persistNodes(nextNodes);
                       }}
                     >
-                      <span style={{ fontSize: 15 }}>{n.icon}</span>
+                      <Glyph e={n.icon} size={15} />
                       <span style={{ fontSize: 12 }}>{n.label}</span>
                       <div style={{ marginLeft: "auto", width: 8, height: 8, borderRadius: "50%", background: n.color, opacity: 0.7 }} />
                     </div>
@@ -365,12 +365,10 @@ const WorkflowBuilder = () => {
           flex: 1,
           position: "relative",
           overflow: "hidden",
-          background: `radial-gradient(ellipse at 40% 30%, rgba(16,185,129,.04) 0%, transparent 60%),
-                    radial-gradient(ellipse at 70% 70%, rgba(139,92,246,.04) 0%, transparent 60%),
-                    ${C.charcoal}`,
+          background: C.charcoal,
           backgroundImage: `
-          linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px)
+          linear-gradient(rgba(237,230,211,.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(237,230,211,.025) 1px, transparent 1px)
         `,
           backgroundSize: "30px 30px",
         }}
@@ -385,7 +383,7 @@ const WorkflowBuilder = () => {
             display: "flex",
             gap: 8,
             zIndex: 10,
-            background: "rgba(17,24,39,.9)",
+            background: "rgba(22,26,22,.9)",
             backdropFilter: "blur(16px)",
             border: `1px solid ${C.border}`,
             borderRadius: 14,
@@ -423,7 +421,7 @@ const WorkflowBuilder = () => {
                 e.target.style.background = "transparent";
               }}
             >
-              {a.icon}
+              <Glyph e={a.icon} size={16} />
             </button>
           ))}
           <div style={{ width: 1, background: C.border, margin: "0 4px" }} />
@@ -435,7 +433,7 @@ const WorkflowBuilder = () => {
         <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}>
           <defs>
             <marker id="arrowE" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-              <path d="M2 2L8 5L2 8" fill="none" stroke="rgba(16,185,129,.6)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M2 2L8 5L2 8" fill="none" stroke="rgba(108,192,122,.6)" strokeWidth="1.5" strokeLinecap="round" />
             </marker>
           </defs>
           {edges.map((edge, i) => {
@@ -444,7 +442,7 @@ const WorkflowBuilder = () => {
             const mx = (pts.x1 + pts.x2) / 2;
             return (
               <g key={i}>
-                <path d={`M${pts.x1},${pts.y1} C${mx},${pts.y1} ${mx},${pts.y2} ${pts.x2},${pts.y2}`} fill="none" stroke="rgba(16,185,129,.2)" strokeWidth="2" />
+                <path d={`M${pts.x1},${pts.y1} C${mx},${pts.y1} ${mx},${pts.y2} ${pts.x2},${pts.y2}`} fill="none" stroke="rgba(108,192,122,.2)" strokeWidth="2" />
                 <path
                   d={`M${pts.x1},${pts.y1} C${mx},${pts.y1} ${mx},${pts.y2} ${pts.x2},${pts.y2}`}
                   fill="none"
@@ -467,9 +465,10 @@ const WorkflowBuilder = () => {
               left: n.x,
               top: n.y,
               width: 160,
-              background: runningNode === n.id ? `linear-gradient(135deg,${n.color}30,${n.color}15)` : `linear-gradient(135deg,${n.color}15,rgba(0,0,0,.2))`,
-              borderColor: runningNode === n.id ? n.color : selected === n.id ? "rgba(16,185,129,.6)" : C.borderMed,
-              boxShadow: runningNode === n.id ? `0 0 20px ${n.color}50,0 0 40px ${n.color}20` : selected === n.id ? "0 0 20px rgba(16,185,129,.2)" : "none",
+              background: runningNode === n.id ? `${n.color}2E` : C.charcoalMid,
+              borderTop: `4px solid ${n.color}`,
+              borderColor: runningNode === n.id ? n.color : selected === n.id ? "rgba(108,192,122,.6)" : C.borderMed,
+              boxShadow: runningNode === n.id ? `0 0 0 1px ${n.color}` : "none",
             }}
             onMouseDown={(e) => handleMouseDown(e, n.id)}
             onClick={(e) => {
@@ -478,7 +477,7 @@ const WorkflowBuilder = () => {
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ fontSize: 20 }}>{n.icon}</span>
+              <Glyph e={n.icon} size={20} />
               <div>
                 <div style={{ fontSize: 12, fontWeight: 700, color: C.ivory }}>{n.label}</div>
                 <div style={{ fontSize: 10, color: C.muted }}>{n.sub}</div>
@@ -493,7 +492,7 @@ const WorkflowBuilder = () => {
                     top: 0,
                     height: "100%",
                     width: "40%",
-                    background: "rgba(255,255,255,.6)",
+                    background: "rgba(237,230,211,.6)",
                     borderRadius: 1,
                     animation: "shimmer 1s linear infinite",
                   }}
@@ -512,7 +511,7 @@ const WorkflowBuilder = () => {
                 height: 36,
                 borderRadius: 8,
                 border: `1px solid ${C.border}`,
-                background: "rgba(17,24,39,.9)",
+                background: "rgba(22,26,22,.9)",
                 color: C.muted,
                 fontSize: 16,
                 cursor: "pointer",
@@ -532,14 +531,14 @@ const WorkflowBuilder = () => {
           width: 280,
           flexShrink: 0,
           borderLeft: `1px solid ${C.border}`,
-          background: "rgba(17,24,39,.95)",
+          background: "rgba(22,26,22,.95)",
           overflow: "auto",
         }}
       >
         {selectedNode ? (
           <div style={{ padding: 20 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-              <span style={{ fontSize: 24 }}>{selectedNode.icon}</span>
+              <Glyph e={selectedNode.icon} size={24} />
               <div>
                 <div style={{ fontWeight: 700, fontSize: 15 }}>{selectedNode.label}</div>
                 <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>Node Configuration</div>
@@ -553,7 +552,7 @@ const WorkflowBuilder = () => {
               { label: "Retry on Fail", val: "3 attempts", type: "text" },
             ].map((f) => (
               <div key={f.label} style={{ marginBottom: 16 }}>
-                <label style={{ fontSize: 11, color: C.muted, display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: ".3px", textTransform: "uppercase" }}>
+                <label style={{ fontSize: 11, color: C.muted, display: "block", marginBottom: 6, fontWeight: 600 }}>
                   {f.label}
                 </label>
                 <input defaultValue={f.val} style={{ width: "100%" }} />
@@ -561,7 +560,7 @@ const WorkflowBuilder = () => {
             ))}
 
             <div style={{ marginTop: 24, paddingTop: 20, borderTop: `1px solid ${C.border}` }}>
-              <div style={{ fontSize: 12, fontWeight: 700, marginBottom: 12, color: C.muted, letterSpacing: ".5px", textTransform: "uppercase" }}>Output Schema</div>
+              <div style={{ fontSize: 12, fontWeight: 700, marginBottom: 12, color: C.muted }}>Output Schema</div>
               {["lead_id", "score", "email", "company"].map((f) => (
                 <div
                   key={f}
@@ -571,7 +570,7 @@ const WorkflowBuilder = () => {
                     gap: 8,
                     padding: "6px 10px",
                     borderRadius: 8,
-                    background: "rgba(255,255,255,.03)",
+                    background: "rgba(237,230,211,.03)",
                     marginBottom: 4,
                     fontSize: 12,
                   }}
@@ -600,8 +599,8 @@ const WorkflowBuilder = () => {
             </div>
 
             <div style={{ marginTop: 16 }}>
-              <div style={{ fontSize: 12, fontWeight: 700, marginBottom: 8, color: C.muted, letterSpacing: ".5px", textTransform: "uppercase" }}>Version History</div>
-              {["v3 — 2h ago", "v2 — 1d ago", "v1 — 3d ago"].map((v) => (
+              <div style={{ fontSize: 12, fontWeight: 700, marginBottom: 8, color: C.muted }}>Version History</div>
+              {["v3 · 2h ago", "v2 · 1d ago", "v1 · 3d ago"].map((v) => (
                 <div
                   key={v}
                   style={{
@@ -614,7 +613,7 @@ const WorkflowBuilder = () => {
                     display: "flex",
                     justifyContent: "space-between",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,.04)")}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(237,230,211,.04)")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
                   {v}
@@ -631,7 +630,7 @@ const WorkflowBuilder = () => {
         )}
       </div>
       {error && (
-        <div style={{ position: "absolute", bottom: 16, left: "50%", transform: "translateX(-50%)", background: "rgba(239,68,68,.15)", border: "1px solid rgba(239,68,68,.3)", color: "#EF4444", padding: "8px 16px", borderRadius: 10, fontSize: 12 }}>
+        <div style={{ position: "absolute", bottom: 16, left: "50%", transform: "translateX(-50%)", background: "rgba(217,83,63,.15)", border: "1px solid rgba(217,83,63,.3)", color: "#D9533F", padding: "8px 16px", borderRadius: 10, fontSize: 12 }}>
           {error}
         </div>
       )}

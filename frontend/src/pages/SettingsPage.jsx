@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { C } from "../theme.js";
 import { api } from "../api.js";
 import { useAuth } from "../AuthContext.jsx";
+import Glyph from "../components/Glyph.jsx";
 
 const sections = [
   { id: "general", icon: "⚙️", label: "General" },
@@ -42,7 +43,7 @@ const GeneralSection = ({ settings, onSave }) => {
       <h2 style={{ fontSize: 22, fontWeight: 800, marginBottom: 24 }}>General Settings</h2>
       {fields.map((f) => (
         <div key={f.key} style={{ marginBottom: 20 }}>
-          <label style={{ fontSize: 12, color: C.muted, display: "block", marginBottom: 6, fontWeight: 600, textTransform: "uppercase", letterSpacing: ".3px" }}>{f.label}</label>
+          <label style={{ fontSize: 12, color: C.muted, display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: ".3px" }}>{f.label}</label>
           <input value={form[f.key] ?? ""} onChange={(e) => setForm((s) => ({ ...s, [f.key]: e.target.value }))} style={{ width: "100%" }} />
         </div>
       ))}
@@ -81,8 +82,8 @@ const ApiKeysSection = () => {
     <div style={{ maxWidth: 640 }}>
       <h2 style={{ fontSize: 22, fontWeight: 800, marginBottom: 24 }}>API Keys</h2>
       {newKey && (
-        <div className="glass-card" style={{ padding: 16, marginBottom: 16, borderColor: "rgba(16,185,129,.3)" }}>
-          <div style={{ fontSize: 12, color: C.emeraldGlow, marginBottom: 6, fontWeight: 600 }}>New key created — copy it now, it won't be shown again:</div>
+        <div className="glass-card" style={{ padding: 16, marginBottom: 16, borderColor: "rgba(108,192,122,.3)" }}>
+          <div style={{ fontSize: 12, color: C.emeraldGlow, marginBottom: 6, fontWeight: 600 }}>New key created. Copy it now; it won't be shown again:</div>
           <div style={{ fontFamily: "monospace", fontSize: 12, wordBreak: "break-all" }}>{newKey.key}</div>
         </div>
       )}
@@ -96,7 +97,7 @@ const ApiKeysSection = () => {
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               <button
-                style={{ background: "rgba(239,68,68,.1)", border: "1px solid rgba(239,68,68,.2)", color: "#EF4444", borderRadius: 8, padding: "6px 12px", fontSize: 12, cursor: "pointer" }}
+                style={{ background: "rgba(217,83,63,.1)", border: "1px solid rgba(217,83,63,.2)", color: "#D9533F", borderRadius: 8, padding: "6px 12px", fontSize: 12, cursor: "pointer" }}
                 onClick={() => revoke(k.id)}
               >
                 Revoke
@@ -135,7 +136,7 @@ const IntegrationsSection = () => {
         {integrations.map((i) => (
           <div key={i.id} className="glass-card" style={{ padding: 18, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ fontSize: 20 }}>{i.icon}</span>
+              <Glyph e={i.icon} size={20} />
               <span style={{ fontSize: 13, fontWeight: 600 }}>{i.name}</span>
             </div>
             <button
@@ -145,9 +146,9 @@ const IntegrationsSection = () => {
                 fontSize: 11,
                 fontWeight: 600,
                 cursor: "pointer",
-                background: i.connected ? "rgba(16,185,129,.1)" : "rgba(255,255,255,.06)",
+                background: i.connected ? "rgba(108,192,122,.1)" : "rgba(237,230,211,.06)",
                 color: i.connected ? C.emeraldGlow : C.muted,
-                border: `1px solid ${i.connected ? "rgba(16,185,129,.3)" : C.border}`,
+                border: `1px solid ${i.connected ? "rgba(108,192,122,.3)" : C.border}`,
               }}
               onClick={() => toggle(i.id)}
             >
@@ -187,9 +188,9 @@ const NotificationsSection = ({ settings, onSave }) => {
 const ThemeSection = ({ settings, onSave }) => (
   <div style={{ maxWidth: 480 }}>
     <h2 style={{ fontSize: 22, fontWeight: 800, marginBottom: 24 }}>Appearance</h2>
-    <div style={{ fontSize: 12, color: C.muted, marginBottom: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: ".3px" }}>Accent Color</div>
+    <div style={{ fontSize: 12, color: C.muted, marginBottom: 12, fontWeight: 600, letterSpacing: ".3px" }}>Accent Color</div>
     <div style={{ display: "flex", gap: 10, marginBottom: 32 }}>
-      {[C.emerald, C.purple, "#3B82F6", "#F59E0B", "#EF4444", "#EC4899"].map((c) => (
+      {[C.emerald, C.purple, "#6FA3C7", "#E8A33A", "#D9533F", "#D9533F"].map((c) => (
         <div
           key={c}
           style={{
@@ -208,7 +209,7 @@ const ThemeSection = ({ settings, onSave }) => (
         />
       ))}
     </div>
-    <div style={{ fontSize: 12, color: C.muted, marginBottom: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: ".3px" }}>Canvas Theme</div>
+    <div style={{ fontSize: 12, color: C.muted, marginBottom: 12, fontWeight: 600, letterSpacing: ".3px" }}>Canvas Theme</div>
     <div style={{ display: "flex", gap: 12 }}>
       {["Dark (Default)", "Dim", "Light"].map((t) => (
         <div
@@ -220,8 +221,8 @@ const ThemeSection = ({ settings, onSave }) => (
             cursor: "pointer",
             fontSize: 13,
             fontWeight: 600,
-            background: t === settings.canvas_theme ? "rgba(16,185,129,.1)" : "rgba(255,255,255,.04)",
-            border: `1px solid ${t === settings.canvas_theme ? "rgba(16,185,129,.3)" : C.border}`,
+            background: t === settings.canvas_theme ? "rgba(108,192,122,.1)" : "rgba(237,230,211,.04)",
+            border: `1px solid ${t === settings.canvas_theme ? "rgba(108,192,122,.3)" : C.border}`,
             color: t === settings.canvas_theme ? C.emeraldGlow : C.muted,
           }}
         >
@@ -269,11 +270,11 @@ const SettingsPage = () => {
 
   return (
     <div style={{ position: "relative", zIndex: 1, display: "flex", height: "100vh", paddingTop: 60 }}>
-      <div style={{ width: 220, borderRight: `1px solid ${C.border}`, background: "rgba(17,24,39,.95)", padding: 16 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: C.muted, marginBottom: 12, letterSpacing: "1px", textTransform: "uppercase", padding: "0 4px" }}>Settings</div>
+      <div style={{ width: 220, borderRight: `1px solid ${C.border}`, background: "rgba(22,26,22,.95)", padding: 16 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: C.muted, marginBottom: 12, padding: "0 4px" }}>Settings</div>
         {sections.map((s) => (
           <div key={s.id} className={`sidebar-item${activeSection === s.id ? " active" : ""}`} onClick={() => setActiveSection(s.id)}>
-            <span style={{ fontSize: 16 }}>{s.icon}</span>
+            <Glyph e={s.icon} size={16} />
             <span style={{ fontSize: 13, fontWeight: 500 }}>{s.label}</span>
           </div>
         ))}

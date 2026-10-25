@@ -1,22 +1,25 @@
+// "Layout board" system: a model railway at night. Dark baseboard, cream
+// station enamel, signal lamps for state, brass for AI. See DESIGN.md.
+// Key names are kept so existing components keep working.
 export const C = {
-  charcoal: "#111827",
-  charcoalMid: "#1F2937",
-  charcoalLight: "#374151",
-  emerald: "#10B981",
-  emeraldDim: "#059669",
-  emeraldGlow: "#34D399",
-  purple: "#8B5CF6",
-  purpleDim: "#7C3AED",
-  purpleGlow: "#A78BFA",
-  ivory: "#FAF7F2",
-  ivoryDim: "#F3EFE8",
-  muted: "#9CA3AF",
-  mutedDark: "#6B7280",
-  border: "rgba(255,255,255,0.08)",
-  borderMed: "rgba(255,255,255,0.12)",
-  borderBright: "rgba(255,255,255,0.2)",
-  glass: "rgba(255,255,255,0.04)",
-  glassMed: "rgba(255,255,255,0.07)",
+  charcoal: "#161A16",
+  charcoalMid: "#1F241F",
+  charcoalLight: "#343B33",
+  emerald: "#6CC07A", // signal green: triggers, actions, success
+  emeraldDim: "#4E9E5C",
+  emeraldGlow: "#8ED29A",
+  purple: "#C99A45", // brass: AI nodes
+  purpleDim: "#A87D30",
+  purpleGlow: "#DDB66A",
+  ivory: "#EDE6D3", // station enamel cream
+  ivoryDim: "#E2D9C2",
+  muted: "#A8A493",
+  mutedDark: "#7E7B6E",
+  border: "rgba(237,230,211,0.1)",
+  borderMed: "rgba(237,230,211,0.16)",
+  borderBright: "rgba(237,230,211,0.26)",
+  glass: "rgba(237,230,211,0.04)",
+  glassMed: "rgba(237,230,211,0.06)",
 };
 
 export const PAGES = ["home", "builder", "templates", "monitoring", "team", "pricing", "settings"];

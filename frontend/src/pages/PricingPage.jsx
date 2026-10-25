@@ -26,24 +26,24 @@ const PricingPage = () => {
         <h1 style={{ fontSize: 40, fontWeight: 800, letterSpacing: "-1px", marginBottom: 16 }}>Simple, transparent pricing</h1>
         <p style={{ color: C.muted, fontSize: 17, marginBottom: 32 }}>Scale as you grow. Cancel anytime.</p>
 
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,.05)", border: `1px solid ${C.border}`, borderRadius: 14, padding: "8px 16px" }}>
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 14, background: "rgba(237,230,211,.05)", border: `1px solid ${C.border}`, borderRadius: 14, padding: "8px 16px" }}>
           <span style={{ fontSize: 14, color: annual ? C.muted : C.ivory, fontWeight: annual ? 400 : 600 }}>Monthly</span>
           <div className={`toggle-switch${annual ? " on" : ""}`} onClick={() => setAnnual(!annual)}>
             <div className="toggle-knob" />
           </div>
           <span style={{ fontSize: 14, color: annual ? C.ivory : C.muted, fontWeight: annual ? 600 : 400 }}>Annual</span>
-          <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 20, background: "rgba(16,185,129,.1)", color: C.emeraldGlow, border: `1px solid rgba(16,185,129,.2)` }}>
+          <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 20, background: "rgba(108,192,122,.1)", color: C.emeraldGlow, border: `1px solid rgba(108,192,122,.2)` }}>
             Save 20%
           </span>
         </div>
       </div>
 
-      {error && <div style={{ textAlign: "center", color: "#EF4444", fontSize: 13, marginBottom: 24 }}>{error}</div>}
+      {error && <div style={{ textAlign: "center", color: "#D9533F", fontSize: 13, marginBottom: 24 }}>{error}</div>}
 
       {loading ? (
         <div style={{ textAlign: "center", color: C.muted, padding: 60 }}>Loading plans…</div>
       ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, alignItems: "start" }}>
+        <div className="nc-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, alignItems: "start" }}>
           {plans.map((p) => {
             const price = p.is_custom ? "Custom" : annual ? p.price_annual : p.price_monthly;
             return (
@@ -55,12 +55,12 @@ const PricingPage = () => {
                       top: -12,
                       left: "50%",
                       transform: "translateX(-50%)",
-                      background: "linear-gradient(135deg,#10B981,#8B5CF6)",
-                      borderRadius: 20,
-                      padding: "4px 16px",
-                      fontSize: 11,
+                      background: "#E8A33A",
+                      borderRadius: 3,
+                      padding: "4px 12px",
+                      fontSize: 12,
                       fontWeight: 700,
-                      color: "white",
+                      color: "#161A16",
                       whiteSpace: "nowrap",
                     }}
                   >

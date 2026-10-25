@@ -1,5 +1,6 @@
 import { C } from "../theme.js";
 import WorkflowPreview from "../components/WorkflowPreview.jsx";
+import Glyph from "../components/Glyph.jsx";
 
 const HomePage = ({ setPage }) => {
   const features = [
@@ -20,7 +21,6 @@ const HomePage = ({ setPage }) => {
     <div style={{ position: "relative", zIndex: 1 }}>
       <section
         style={{
-          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -30,42 +30,16 @@ const HomePage = ({ setPage }) => {
           position: "relative",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: "30%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-            width: 600,
-            height: 400,
-            borderRadius: "50%",
-            background: "radial-gradient(ellipse, rgba(16,185,129,.12) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "40%",
-            left: "60%",
-            transform: "translate(-50%,-50%)",
-            width: 400,
-            height: 300,
-            borderRadius: "50%",
-            background: "radial-gradient(ellipse, rgba(139,92,246,.08) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
 
         <div className="tag" style={{ marginBottom: 24, animation: "slide-in .6s ease" }}>
-          ✦ AI Workflow Automation Platform
+          AI workflow automation platform
         </div>
         <h1
           style={{
             fontSize: "clamp(40px,6vw,80px)",
-            fontWeight: 900,
-            lineHeight: 1.05,
-            letterSpacing: "-2px",
+            fontWeight: 700,
+            lineHeight: 1,
+            letterSpacing: "0",
             maxWidth: 900,
             marginBottom: 24,
             animation: "slide-in .6s .1s both",
@@ -84,15 +58,15 @@ const HomePage = ({ setPage }) => {
             animation: "slide-in .6s .2s both",
           }}
         >
-          Connect AI models, APIs, and your entire tech stack into powerful automated pipelines — no code required.
+          Connect AI models, APIs and the rest of your stack into automated pipelines, with no code.
           Deploy in seconds.
         </p>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center", animation: "slide-in .6s .3s both" }}>
           <button className="btn-emerald" style={{ fontSize: 16, padding: "14px 36px" }} onClick={() => setPage("builder")}>
-            Start Building →
+            Start building
           </button>
           <button className="btn-ghost" style={{ fontSize: 16, padding: "14px 36px" }} onClick={() => setPage("templates")}>
-            ▶ Watch Demo
+            Watch the demo
           </button>
         </div>
 
@@ -108,10 +82,10 @@ const HomePage = ({ setPage }) => {
         >
           {metrics.map((m) => (
             <div key={m.n} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-1px" }} className="gradient-text">
+              <div style={{ fontSize: 30, fontWeight: 700, fontFamily: "'Cabin Condensed', sans-serif", color: C.ivory, fontVariantNumeric: "tabular-nums" }}>
                 {m.n}
               </div>
-              <div style={{ fontSize: 12, color: C.muted, marginTop: 4, letterSpacing: ".5px", textTransform: "uppercase" }}>
+              <div style={{ fontSize: 13, color: C.muted, marginTop: 4 }}>
                 {m.l}
               </div>
             </div>
@@ -129,24 +103,19 @@ const HomePage = ({ setPage }) => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
-            <div style={{ display: "flex", gap: 6 }}>
-              {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => (
-                <div key={c} style={{ width: 12, height: 12, borderRadius: "50%", background: c }} />
-              ))}
-            </div>
-            <span style={{ fontSize: 12, color: C.muted, marginLeft: 8 }}>lead-generation-pipeline.flow</span>
+            <span style={{ fontSize: 13, color: C.muted, fontFamily: "'Fira Code', monospace" }}>lead-generation-pipeline.flow</span>
             <div
               style={{
                 marginLeft: "auto",
-                background: "rgba(16,185,129,.1)",
+                background: "rgba(108,192,122,.1)",
                 color: C.emeraldGlow,
                 fontSize: 11,
                 padding: "3px 10px",
                 borderRadius: 20,
-                border: `1px solid rgba(16,185,129,.2)`,
+                border: `1px solid rgba(108,192,122,.2)`,
               }}
             >
-              ● LIVE
+              Live
             </div>
           </div>
           <WorkflowPreview />
@@ -155,7 +124,7 @@ const HomePage = ({ setPage }) => {
 
       <section style={{ padding: "80px 40px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: "-1px", marginBottom: 16 }}>
+          <h2 style={{ fontSize: 44, fontWeight: 700, marginBottom: 16 }}>
             Everything you need to <span className="gradient-text">automate anything</span>
           </h2>
           <p style={{ color: C.muted, fontSize: 17 }}>Powerful primitives. Infinite possibilities.</p>
@@ -172,15 +141,14 @@ const HomePage = ({ setPage }) => {
                 animationDelay: `${i * 0.06}s`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(16,185,129,.3)";
-                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.borderColor = C.borderBright;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = C.border;
                 e.currentTarget.style.transform = "";
               }}
             >
-              <div style={{ fontSize: 32, marginBottom: 14 }}>{f.icon}</div>
+              <div style={{ marginBottom: 14, color: C.ivory, width: 40, height: 40, display: "grid", placeItems: "center", border: `1px solid ${C.borderMed}`, borderRadius: 6 }}><Glyph e={f.icon} size={20} /></div>
               <div style={{ fontSize: 17, fontWeight: 700, marginBottom: 8 }}>{f.title}</div>
               <div style={{ fontSize: 14, color: C.muted, lineHeight: 1.6 }}>{f.desc}</div>
             </div>
@@ -195,16 +163,17 @@ const HomePage = ({ setPage }) => {
             maxWidth: 700,
             margin: "0 auto",
             padding: 56,
-            background: "linear-gradient(135deg,rgba(16,185,129,.08),rgba(139,92,246,.06))",
-            borderColor: "rgba(16,185,129,.2)",
+            background: "#EDE6D3",
+            color: "#161A16",
+            borderColor: "#EDE6D3",
           }}
         >
-          <h2 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-1px", marginBottom: 16 }}>
+          <h2 style={{ fontSize: 40, fontWeight: 700, marginBottom: 16 }}>
             Ready to automate everything?
           </h2>
-          <p style={{ color: C.muted, marginBottom: 32, fontSize: 16 }}>Join 12,000+ teams building the future of work.</p>
-          <button className="btn-emerald" style={{ fontSize: 16, padding: "14px 40px" }} onClick={() => setPage("builder")}>
-            Get started free →
+          <p style={{ color: "#4A4A40", marginBottom: 32, fontSize: 16 }}>Join 12,000+ teams building the future of work.</p>
+          <button className="btn-emerald" data-dark style={{ fontSize: 16, padding: "14px 40px" }} onClick={() => setPage("builder")}>
+            Get started free
           </button>
         </div>
       </section>
